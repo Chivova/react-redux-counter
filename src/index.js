@@ -4,16 +4,19 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import store from './redux/store';
+// import actions from './redux/counter/counter-actions';
+
 import 'modern-normalize/modern-normalize.css';
 import './styles/base.scss';
 console.log(store);
+// store.dispatch(actions);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/* <Provider store={store}> */}
-      <App />
-      {/* </Provider> */}
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'),

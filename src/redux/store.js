@@ -1,5 +1,14 @@
 import { createStore, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import counterReducer from './counter/counter-reducer';
+
+const rootReducer = combineReducers({
+  counter: counterReducer,
+});
+
+const store = createStore(rootReducer, composeWithDevTools());
+
+export default store;
 
 // const initialState = {
 //   counter: {
@@ -50,31 +59,3 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // };
 
 // const store = createStore(reducer, composeWithDevTools());
-
-const valueReducer = (state = 0, { type, payload }) => {
-  switch (type) {
-    case 'counter/Increment':
-      return state + payload;
-
-    case 'counter/Decrement':
-      return state - payload;
-
-    default:
-      return state;
-  }
-};
-
-const stepReducer = (state = 1, action) => state;
-
-const counterReducer = combineReducers({
-  value: valueReducer,
-  step: stepReducer,
-});
-
-const rootReducer = combineReducers({
-  counter: counterReducer,
-});
-
-const store = createStore(rootReducer, composeWithDevTools());
-
-export default store;

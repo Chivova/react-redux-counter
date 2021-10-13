@@ -7,7 +7,6 @@ import * as actions from '../../redux/counter/counter-actions';
 import './Counter.css';
 
 function Counter({ value, step, onIncrement, onDecrement }) {
-  console.log(step);
   return (
     <div className="Counter">
       <Value value={value} />
